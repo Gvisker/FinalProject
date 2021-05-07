@@ -16,6 +16,7 @@ public class Kiwi extends Fruit
     private int size = 25;
     private int upperLeftX = 0;
     private int upperLeftY = 500;
+    private boolean isSliced;
 
     public Kiwi(double xSpeed, double ySpeed, JComponent container){
         super(xSpeed, ySpeed, container);
@@ -23,14 +24,22 @@ public class Kiwi extends Fruit
     }
 
     public void paint(Graphics g){
-        g.drawOval(upperLeftX, upperLeftY, size/2, size/2);
-        g.setColor(Color.green);
-        g.fillOval(upperLeftX, upperLeftY, size/2, size/2);
-        g.setColor(Color.black);
+        slice();
+        if(isSliced){
+            g.drawOval(upperLeftX, upperLeftY, size/2, size/2);
+            g.setColor(Color.green);
+            g.fillOval(upperLeftX, upperLeftY, size/2, size/2);
+            g.setColor(Color.black);
+        }else{
+
+        }
 
     }
 
     public void slice(){
+        if(true){
+            isSliced = true;   
+        }
 
     }
 
