@@ -15,7 +15,7 @@ public class Apple extends Fruit
 {   
     public Apple(double xSpeed, double ySpeed,
     JComponent container, int size, double upperLeftX){
-        super(0.5, 0, container, 15, container.getWidth()/3);
+        super(-10, 0, container, 15, container.getWidth()/3);
     }
 
     public void paint(Graphics g){
