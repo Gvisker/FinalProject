@@ -14,24 +14,22 @@ import java.awt.Color;
  */
 public class Kiwi extends Fruit
 {
-    private final int SIZE = 25;
-    private int upperLeftX, upperLeftY;
 
-    public Kiwi(double xSpeed, double ySpeed, JComponent container, int size, double upperLeftX){
-        super(1, ySpeed, container, 25, 0);
+    public Kiwi(JComponent container){
+        super(3, -13, container, 50, 0);
 
     }
 
     public void paint(Graphics g){
-        if(!true){
-            g.drawOval(upperLeftX, upperLeftY, size/2, size/2);
+        if(!sliced){
+            g.drawOval((int)upperLeftX, (int)upperLeftY, size/2, size/2);
             g.setColor(Color.green);
-            g.fillOval(upperLeftX, upperLeftY, size/2, size/2);
+            g.fillOval((int)upperLeftX, (int)upperLeftY, size/2, size/2);
             g.setColor(Color.black);
         }else{
-            g.fillArc(upperLeftX, upperLeftY, size/2, size/2, 0, 0);
-            g.setColor(Color.green);
-            g.fillArc(upperLeftX, upperLeftY, size/2, size/2, 0, 0);
+            g.setColor(Color.gray);
+            g.fillArc((int)upperLeftX, (int)upperLeftY, size/2, size/2, 0, 180);
+            g.fillArc((int)upperLeftX, (int)upperLeftY+5, size/2, size/2,180, 180);
             g.setColor(Color.black);
         }
 
