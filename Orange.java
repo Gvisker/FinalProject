@@ -15,8 +15,8 @@ public class Orange extends Fruit
     private int size = 25;
     private int upperLeftX;
 
-    public Orange(double xSpeed, double ySpeed, JComponent container, int size, double upperLeftX){
-        super(1.5, 0, container, 15, container.getWidth()/3);
+    public Orange(JComponent container){
+         super(3, -10, container, 125, container.getWidth()/5);
     }
 
     /**
