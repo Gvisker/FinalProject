@@ -6,7 +6,8 @@ import javax.swing.event.*;
 import java.awt.Color;
 
 /**
- * Write a description of class Kiwi here.
+ * This class will draw a Kiwi on the graphics screen and have it's abstract class determine
+ * what will happen to it.
  *
  * @author Grant Visker, John Hurley, Joseph Capper, and Logan Belak.
  * @version 5/7/2021
@@ -14,24 +15,18 @@ import java.awt.Color;
 public class Kiwi extends Fruit
 {
     private int size = 25;
-    private int upperLeftX = 0;
+    private int upperLeftX;
 
-    public Kiwi(double xSpeed, double ySpeed, JComponent container){
-        super(xSpeed, ySpeed, container);
+    public Kiwi(double xSpeed, double ySpeed, JComponent container, int size, double upperLeftX){
+        super(xSpeed, ySpeed, container, 25, 0);
 
     }
 
     public void paint(Graphics g){
-        slice();
-        if(isSliced){
-            g.drawOval(upperLeftX, upperLeftY, size/2, size/2);
-            g.setColor(Color.green);
-            g.fillOval(upperLeftX, upperLeftY, size/2, size/2);
-            g.setColor(Color.black);
-        }else{
-
-        }
+        g.drawOval(upperLeftX, 0, size/2, size/2);
+        g.setColor(Color.green);
+        g.fillOval(upperLeftX, 0, size/2, size/2);
+        g.setColor(Color.black);
 
     }
-
 }
