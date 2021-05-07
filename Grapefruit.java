@@ -1,4 +1,8 @@
-
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
 /**
  * Write a description of class Grapefruit here.
  *
@@ -7,27 +11,29 @@
  */
 public class Grapefruit extends Fruit
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
     /**
      * Constructor for objects of class Grapefruit
      */
-    public Grapefruit()
+    public Grapefruit(double xSpeed, double ySpeed,
+    JComponent container)
     {
-        // initialise instance variables
-        x = 0;
+        super(xSpeed,ySpeed,container);
     }
-
+    
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+    Draw the ball at its current location.
+
+    @param g the Graphics object on which the ball should be drawn
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public void paint(Graphics g){
+        
+    }
+    
+    public void toss(){
+        
+    }
+    
+    public void slice(){
+        
     }
 }
