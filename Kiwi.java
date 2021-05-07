@@ -15,8 +15,6 @@ public class Kiwi extends Fruit
 {
     private int size = 25;
     private int upperLeftX = 0;
-    private int upperLeftY = 500;
-    private boolean isSliced;
 
     public Kiwi(double xSpeed, double ySpeed, JComponent container){
         super(xSpeed, ySpeed, container);
@@ -36,14 +34,4 @@ public class Kiwi extends Fruit
 
     }
 
-    public void slice(){
-        if(true){
-            isSliced = true;   
-        }
-
-    }
-
-    public void toss(){
-
-    }
 }

@@ -12,11 +12,6 @@ import javax.swing.event.*;
  */
 public class Orange extends Fruit
 {
-
-    private int size;
-
-    protected double upperLeftX, upperLeftY;
-    
     public Orange(double xSpeed, double ySpeed, JComponent containter, int size){
         super(xSpeed, ySpeed, container);
     }
@@ -27,14 +22,6 @@ public class Orange extends Fruit
     @param g the Graphics object on which the ball should be drawn
      */
     public void paint(Graphics g) {
-
-    }
-
-    public void toss() {
-
-    }
-
-    public void slice() {
 
     }
 

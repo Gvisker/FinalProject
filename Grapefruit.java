@@ -28,12 +28,4 @@ public class Grapefruit extends Fruit
     public void paint(Graphics g){
         
     }
-    
-    public void toss(){
-        
-    }
-    
-    public void slice(){
-        
-    }
 }
