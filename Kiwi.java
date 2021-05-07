@@ -15,8 +15,10 @@ public class Kiwi extends Fruit
      */
     public Kiwi()
     {
-        // initialise instance variables
-        x = 0;
+        x= 25;
+        
+        
+        //testing
     }
 
     /**
