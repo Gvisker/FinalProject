@@ -23,6 +23,12 @@ public abstract class Fruit extends Thread
     protected boolean done;
 
     protected JComponent container;
+    
+    protected int size;
+    
+    protected double upperLeftX, upperLeftY;
+    
+    protected boolean sliced;
 
     /**
     Construct a new Fruit object.
@@ -34,10 +40,13 @@ public abstract class Fruit extends Thread
     drawn to allow it to call that component's repaint method
      */
     public Fruit(double xSpeed, double ySpeed,
-    JComponent container) {
+    JComponent container, int size, double upperLeftX) {
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
         this.container = container;
+        this.upperLeftX = upperLeftX;
+        upperLeftY = container.getHeight();
+        sliced = false;
     }
 
     /**
@@ -47,9 +56,9 @@ public abstract class Fruit extends Thread
      */
     public abstract void paint(Graphics g);
     
-    public abstract void toss();
-    
-    public abstract void slice();
+    public void slice(){
+        sliced = true;
+    }
 
     /**
     This object's run method, which manages the life of the ball as it
@@ -85,7 +94,6 @@ public abstract class Fruit extends Thread
     @return whether the ball has completed its fall to the bottom
      */
     public boolean done() {
-
         return done;
     }
 }
