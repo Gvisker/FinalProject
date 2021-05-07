@@ -68,6 +68,8 @@ public class Ninja extends MouseAdapter implements Runnable {
 
         // construct the list
         list = new ArrayList<Fruit>();
+        
+
 
         frame.pack();
         frame.setVisible(true);
@@ -80,8 +82,9 @@ public class Ninja extends MouseAdapter implements Runnable {
      */
     @Override
     public void mousePressed(MouseEvent e) {
-
-        pressPoint = e.getPoint();
+        Fruit newFruit = new Apple(panel);
+        list.add(newFruit);
+        newFruit.start();
         panel.repaint();
     }
 

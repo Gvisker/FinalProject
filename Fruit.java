@@ -46,6 +46,7 @@ public abstract class Fruit extends Thread
         this.container = container;
         this.upperLeftX = upperLeftX;
         upperLeftY = container.getHeight();
+        this.size = size;
         sliced = false;
     }
 
