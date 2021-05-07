@@ -12,22 +12,17 @@ import javax.swing.event.*;
  */
 public abstract class Fruit extends Thread
 {
-
-    public int size;
-
     // delay time between frames of animation (ms)
     public static final int DELAY_TIME = 33;
 
     // what to add to ySpeed to simulate gravity?
     public static final double GRAVITY = 0.3;
 
-    private double xSpeed, ySpeed;
+    protected double xSpeed, ySpeed;
 
-    private double upperLeftX, upperLeftY;
+    protected boolean done;
 
-    private boolean done;
-
-    private JComponent container;
+    protected JComponent container;
 
     /**
     Construct a new Fruit object.
