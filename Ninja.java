@@ -16,8 +16,8 @@ public class Ninja extends MouseAdapter implements Runnable {
     // speeds in the x and y directions
     public static final double SLING_FACTOR = 0.25;
 
-    // list of Fruit objects currently on the screen
-    //private java.util.List<Fruit> list;
+    //list of Fruit objects currently on the screen
+    private java.util.List<Fruit> list;
 
     private JPanel panel;
     private JPanel gamePanel;
