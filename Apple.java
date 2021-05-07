@@ -7,27 +7,12 @@
  */
 public class Apple extends Fruit
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private int size;
 
-    /**
-     * Constructor for objects of class Apple
-     */
-    public Apple()
-    {
-        // initialise instance variables
-        x = 0;
-    }
+    protected double upperLeftX, upperLeftY;
+    
+    public Apple(double xSpeed, double ySpeed, JComponent containter, int size, ){
+        super(xSpeed, ySpeed, container);
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
     }
 }
