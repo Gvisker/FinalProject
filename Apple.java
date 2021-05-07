@@ -22,7 +22,7 @@ public class Apple extends Fruit
         g.setColor(Color.red);
         if(sliced){
             g.fillArc((int)upperLeftX, (int)upperLeftY, size/2, size/2, 0, 180);
-            g.fillArc((int)upperLeftX, (int)upperLeftY - size/2, size/2, size/2, 180, -180);
+            g.fillArc((int)upperLeftX, (int)upperLeftY + size, size/2, size/2, 180, -180);
         }else{
             g.fillOval((int)upperLeftX, (int)upperLeftY, size/2, size/2);
         }
