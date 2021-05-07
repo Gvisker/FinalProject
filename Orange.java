@@ -1,33 +1,41 @@
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
 
 /**
  * Write a description of class Orange here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Grant Visker, John Hurley, Joseph Capper, and Logan Belak.
+ * @version 5/7/2021
  */
 public class Orange extends Fruit
 {
-    // instance variables - replace the example below with your own
-    private int y;
 
-    /**
-     * Constructor for objects of class Orange
-     */
-    public Orange()
-    {
-        // initialise instance variables
-        x = 0;
+    private int size;
+
+    protected double upperLeftX, upperLeftY;
+    
+    public Orange(double xSpeed, double ySpeed, JComponent containter, int size){
+        super(xSpeed, ySpeed, container);
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+    Draw the ball at its current location.
+
+    @param g the Graphics object on which the ball should be drawn
      */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public void paint(Graphics g) {
+
     }
+
+    public void toss() {
+
+    }
+
+    public void slice() {
+
+    }
+
 }

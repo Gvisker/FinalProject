@@ -1,35 +1,40 @@
+import java.awt.*;
+import java.awt.event.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import java.awt.Color;
 
 /**
  * Write a description of class Kiwi here.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Grant Visker, John Hurley, Joseph Capper, and Logan Belak.
+ * @version 5/7/2021
  */
 public class Kiwi extends Fruit
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    private int size = 25;
+    private int upperLeftX = 0;
+    private int upperLeftY = 500;
 
-    /**
-     * Constructor for objects of class Kiwi
-     */
-    public Kiwi()
-    {
-        x= 25;
-        
-        
-        //testing
+    public Kiwi(double xSpeed, double ySpeed, JComponent container){
+        super(xSpeed, ySpeed, container);
+
     }
 
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    public int sampleMethod(int y)
-    {
-        // put your code here
-        return x + y;
+    public void paint(Graphics g){
+        g.drawOval(upperLeftX, upperLeftY, size/2, size/2);
+        g.setColor(Color.green);
+        g.fillOval(upperLeftX, upperLeftY, size/2, size/2);
+        g.setColor(Color.black);
+
+    }
+
+    public void slice(){
+
+    }
+
+    public void toss(){
+
     }
 }
