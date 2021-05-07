@@ -14,18 +14,28 @@ public class Grapefruit extends Fruit
     /**
      * Constructor for objects of class Grapefruit
      */
-    public Grapefruit(double xSpeed, double ySpeed,
-    JComponent container)
+    public Grapefruit(JComponent container)
     {
-        super(xSpeed,ySpeed,container);
+        super(3, -13, container, 200, container.getWidth()/5);
     }
-    
-    /**
-    Draw the ball at its current location.
 
-    @param g the Graphics object on which the ball should be drawn
+    /**
+    Draw the Grapefruit at its current location.
+
+    @param g the Graphics object on which the Grapefruit should be drawn
      */
     public void paint(Graphics g){
-        
+        if(!sliced){
+            g.drawOval((int)upperLeftX, (int)upperLeftY, size/2, size/2);
+            g.setColor(Color.yellow);
+            g.fillOval((int)upperLeftX, (int)upperLeftY, size/2, size/2);
+            g.setColor(Color.black);
+        }else{
+            g.setColor(Color.yellow);
+            g.fillArc((int)upperLeftX, (int)upperLeftY, size/2, size/2, 0, 180);
+            g.fillArc((int)upperLeftX, (int)upperLeftY+5, size/2, size/2,180, 180);
+            g.setColor(Color.black);
+        }
+
     }
 }
