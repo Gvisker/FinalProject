@@ -16,7 +16,7 @@ public abstract class Fruit extends Thread
     public static final int DELAY_TIME = 33;
 
     // what to add to ySpeed to simulate gravity?
-    public static final double GRAVITY = 0.3;
+    public static final double GRAVITY = 0.25;
 
     protected double xSpeed, ySpeed;
 
@@ -47,7 +47,7 @@ public abstract class Fruit extends Thread
         this.upperLeftX = upperLeftX;
         upperLeftY = container.getHeight();
         this.size = size;
-        sliced = false;
+        sliced = true;
     }
 
     /**
