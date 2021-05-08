@@ -82,7 +82,7 @@ public class Ninja extends MouseAdapter implements Runnable {
      */
     @Override
     public void mousePressed(MouseEvent e) {
-        Fruit newFruit = new Grapefruit(panel);
+        Fruit newFruit = new Orange(panel);
         list.add(newFruit);
         newFruit.start();
         panel.repaint();

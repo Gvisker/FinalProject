@@ -12,11 +12,8 @@ import javax.swing.event.*;
  */
 public class Orange extends Fruit
 {
-    private int size = 25;
-    private int upperLeftX;
-
     public Orange(JComponent container){
-         super(3, -10, container, 125, container.getWidth()/5);
+        super(3, -10, container, 80, container.getWidth()/5);
     }
 
     /**
@@ -25,16 +22,12 @@ public class Orange extends Fruit
     @param g the Graphics object on which the orange should be drawn
      */
     public void paint(Graphics g) {
-        if(sliced){
-            g.fillArc((int)upperLeftX, (int)upperLeftY, size/2, size/2, 0, 180);
-            g.setColor(Color.orange);
-            g.fillArc((int)upperLeftX, (int)upperLeftY - size/2, size/2, size/2, 180, -180);
-            g.setColor(Color.black);
-        } else {
-            g.drawOval((int)upperLeftX, (int)upperLeftY, size/2, size/2);
-            g.setColor(Color.orange);
+        g.setColor(Color.orange);
+        if(!sliced){
             g.fillOval((int)upperLeftX, (int)upperLeftY, size/2, size/2);
-            g.setColor(Color.black);
+        } else {
+            g.fillArc((int)upperLeftX, (int)upperLeftY, size/2, size/2, 0, 180);
+            g.fillArc((int)upperLeftX, (int)upperLeftY+5, size/2, size/2,180, 180);
         }
 
     }
