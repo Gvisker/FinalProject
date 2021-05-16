@@ -16,12 +16,13 @@ public class Kiwi extends Fruit
 {
 
     public Kiwi(JComponent container){
-        super(3, -13, container, 50, 0);
+        super(3, -18, container, 50, 0);
 
     }
 
     public void paint(Graphics g){
         if(!sliced){
+            g.setColor(Color.black);
             g.drawOval((int)upperLeftX, (int)upperLeftY, size/2, size/2);
             g.setColor(Color.green);
             g.fillOval((int)upperLeftX, (int)upperLeftY, size/2, size/2);

@@ -15,7 +15,7 @@ public class Watermelon extends Fruit
 {   
     public Watermelon(
     JComponent container){
-        super(0, -15, container, 200, container.getWidth()/2);
+        super(0, -15, container, 200, container.getWidth()/2 - 100);
     }
 
     public void paint(Graphics g){
@@ -24,6 +24,9 @@ public class Watermelon extends Fruit
             g.fillArc((int)upperLeftX, (int)upperLeftY, size/2, size/3, 0, 180);
             g.fillArc((int)upperLeftX, (int)upperLeftY + 10, size/2, size/3, 180, 180);
         }else{
+            g.setColor(Color.black);
+            g.drawOval((int)upperLeftX, (int)upperLeftY, size/2, size/3);
+            g.setColor(new Color(0, 130, 0));
             g.fillOval((int)upperLeftX, (int)upperLeftY, size/2, size/3);
         }
 

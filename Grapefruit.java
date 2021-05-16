@@ -16,7 +16,7 @@ public class Grapefruit extends Fruit
      */
     public Grapefruit(JComponent container)
     {
-        super(3, -13, container, 200, container.getWidth()/5);
+        super(5, -14, container, 140, container.getWidth()/6);
     }
 
     /**
@@ -26,10 +26,10 @@ public class Grapefruit extends Fruit
      */
     public void paint(Graphics g){
         if(!sliced){
+            g.setColor(Color.black);
             g.drawOval((int)upperLeftX, (int)upperLeftY, size/2, size/2);
             g.setColor(Color.yellow);
             g.fillOval((int)upperLeftX, (int)upperLeftY, size/2, size/2);
-            g.setColor(Color.black);
         }else{
             g.setColor(Color.yellow);
             g.fillArc((int)upperLeftX, (int)upperLeftY, size/2, size/2, 0, 180);
