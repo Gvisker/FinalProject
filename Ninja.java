@@ -21,7 +21,7 @@ public class Ninja extends MouseAdapter implements Runnable {
 
     private JPanel panel;
     private JPanel gamePanel;
-    
+
     private JButton start;
     private JLabel score;
     private JLabel title;
@@ -37,7 +37,7 @@ public class Ninja extends MouseAdapter implements Runnable {
         JFrame.setDefaultLookAndFeelDecorated(true);
 
         JFrame frame = new JFrame("Swing Ninja");
-        frame.setPreferredSize(new Dimension(500,500));
+        frame.setPreferredSize(new Dimension(800,800));
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         panel = new JPanel() {
@@ -59,16 +59,15 @@ public class Ninja extends MouseAdapter implements Runnable {
                 }
             }
         };
-        
+
         gamePanel = new JPanel();
-        
+
         frame.add(panel);
         panel.addMouseListener(this);
         panel.addMouseMotionListener(this);
 
         // construct the list
         list = new ArrayList<Fruit>();
-        
 
 
         frame.pack();
@@ -82,9 +81,21 @@ public class Ninja extends MouseAdapter implements Runnable {
      */
     @Override
     public void mousePressed(MouseEvent e) {
-        Fruit newFruit = new Orange(panel);
+        Fruit newFruit = new Apple(panel);
+        Fruit newFruit2 = new Orange(panel);
+        Fruit newFruit3 = new Kiwi(panel);
+        Fruit newFruit4 = new Grapefruit(panel);
+        Fruit newFruit5 = new Watermelon(panel);
         list.add(newFruit);
+        list.add(newFruit2);
+        list.add(newFruit3);
+        list.add(newFruit4);
+        list.add(newFruit5);
         newFruit.start();
+        newFruit2.start();
+        newFruit3.start();
+        newFruit4.start();
+        newFruit5.start();
         panel.repaint();
     }
 
