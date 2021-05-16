@@ -17,7 +17,7 @@ public class Ninja extends MouseAdapter implements Runnable {
     public static final double SLING_FACTOR = 0.25;
 
     //list of Fruit objects currently on the screen
-    private java.util.List<Fruit> list;
+    private java.util.List<Fruit> list = new ArrayList<Fruit>();
 
     private JPanel panel;
     private JPanel gamePanel;
@@ -25,6 +25,10 @@ public class Ninja extends MouseAdapter implements Runnable {
     private JButton start;
     private JLabel score;
     private JLabel title;
+
+    private ArrayList<AnimatedLine> lines = new ArrayList<>();
+
+    private Point lastMouse;
 
     private Point pressPoint;
 
@@ -57,6 +61,9 @@ public class Ninja extends MouseAdapter implements Runnable {
                         i++;
                     }
                 }
+                for (AnimatedLine l : lines) {
+                    l.paint(g);
+                }
             }
         };
 
@@ -65,10 +72,6 @@ public class Ninja extends MouseAdapter implements Runnable {
         frame.add(panel);
         panel.addMouseListener(this);
         panel.addMouseMotionListener(this);
-
-        // construct the list
-        list = new ArrayList<Fruit>();
-
 
         frame.pack();
         frame.setVisible(true);
@@ -81,22 +84,23 @@ public class Ninja extends MouseAdapter implements Runnable {
      */
     @Override
     public void mousePressed(MouseEvent e) {
-        Fruit newFruit = new Apple(panel);
-        Fruit newFruit2 = new Orange(panel);
-        Fruit newFruit3 = new Kiwi(panel);
-        Fruit newFruit4 = new Grapefruit(panel);
-        Fruit newFruit5 = new Watermelon(panel);
-        list.add(newFruit);
-        list.add(newFruit2);
-        list.add(newFruit3);
-        list.add(newFruit4);
-        list.add(newFruit5);
-        newFruit.start();
-        newFruit2.start();
-        newFruit3.start();
-        newFruit4.start();
-        newFruit5.start();
-        panel.repaint();
+        // Fruit newFruit = new Apple(panel);
+        // Fruit newFruit2 = new Orange(panel);
+        // Fruit newFruit3 = new Kiwi(panel);
+        // Fruit newFruit4 = new Grapefruit(panel);
+        // Fruit newFruit5 = new Watermelon(panel);
+        // list.add(newFruit);
+        // list.add(newFruit2);
+        // list.add(newFruit3);
+        // list.add(newFruit4);
+        // list.add(newFruit5);
+        // newFruit.start();
+        // newFruit2.start();
+        // newFruit3.start();
+        // newFruit4.start();
+        // newFruit5.start();
+        // panel.repaint();
+        lastMouse = e.getPoint();
     }
 
     /**
@@ -105,6 +109,14 @@ public class Ninja extends MouseAdapter implements Runnable {
      */
     @Override
     public void mouseDragged(MouseEvent e) {
+        Point p[] = new Point[2];
+        p[0] = lastMouse;
+        lastMouse = e.getPoint();
+        p[1] = lastMouse;
+        VanishingLine newLine = new VanishingLine(p[0], p[1], panel);
+        lines.add(newLine);
+        newLine.start();
+        panel.repaint();
     }
 
     /**
