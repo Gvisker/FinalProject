@@ -10,7 +10,7 @@ import javax.swing.event.*;
  * @author Grant Visker, John Hurley, Joseph Capper, and Logan Belak.
  * @version 5/7/2021
  */
-public class Ninja extends MouseAdapter implements Runnable {
+public class Ninja extends MouseAdapter implements Runnable, ActionListener {
 
     // multiplier to convert the press/release distances to initial
     // speeds in the x and y directions
@@ -31,6 +31,12 @@ public class Ninja extends MouseAdapter implements Runnable {
     private Point lastMouse;
 
     private Point pressPoint;
+
+    protected javax.swing.Timer time;
+
+    private Random r = new Random();
+
+    private Object lock = new Object();
 
     /**
     The run method to set up the graphical user interface
@@ -69,12 +75,36 @@ public class Ninja extends MouseAdapter implements Runnable {
 
         gamePanel = new JPanel();
 
-        frame.add(panel);
+        frame.add(panel);   
         panel.addMouseListener(this);
         panel.addMouseMotionListener(this);
+        time = new javax.swing.Timer(3000, this);
+        time.start();
 
         frame.pack();
         frame.setVisible(true);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e){
+        Fruit newFruit;
+        int fruitID = r.nextInt(5);
+        if(fruitID == 0){
+            newFruit = new Apple(panel);
+        }else if(fruitID == 1){ 
+            newFruit = new Orange(panel);
+        }else if(fruitID == 2){ 
+            newFruit = new Kiwi(panel);
+        }else if(fruitID == 3){ 
+            newFruit = new Grapefruit(panel);
+        }else{ 
+            newFruit = new Watermelon(panel);
+        }
+        synchronized (lock){
+            list.add(newFruit);
+        }
+        newFruit.start();
+        panel.repaint();
     }
 
     /**
