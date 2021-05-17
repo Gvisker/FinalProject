@@ -26,6 +26,12 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
     private JLabel score;
     private JLabel title;
 
+    private final int KIWI_SIZE = 50;
+    private final int WATERMELON_SIZE = 200;
+    private final int ORANGE_SIZE = 80;
+    private final int GRAPEFRUIT_SIZE = 140;
+    private final int APPLE_SIZE = 100;
+
     private ArrayList<AnimatedLine> lines = new ArrayList<>();
     private Point lastMouse;
     private Point pressPoint;
@@ -57,13 +63,13 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
                     Fruit f = list.get(i);
                     if(!(f.sliced)){
                         if(mouseCollide(lastMouse, f.upperLeftX, f.upperLeftY, f)){
-                            if(f.size == 50){
+                            if(f.size == KIWI_SIZE){
                                 totalScore += 10;
-                            }else if(f.size == 200){
+                            }else if(f.size == WATERMELON_SIZE){
                                 totalScore += 1;   
-                            }else if(f.size == 80){
+                            }else if(f.size == ORANGE_SIZE){
                                 totalScore += 7;   
-                            }else if(f.size == 140){
+                            }else if(f.size == GRAPEFRUIT_SIZE){
                                 totalScore += 3;   
                             }else{
                                 totalScore += 5;   
