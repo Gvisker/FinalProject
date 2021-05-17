@@ -105,15 +105,18 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
 
         gamePanel = new JPanel();
         score = new JLabel("Score: " + totalScore);
+        start = new JButton("Start");
         tempScore = new JLabel("");
         score.setFont(new Font("Verdana", Font.PLAIN, 18));
         tempScore.setFont(new Font("Verdana", Font.PLAIN, 18));
         panel.add(score);
+        panel.add(start);
         panel.add(tempScore);
 
         frame.add(panel);   
         panel.addMouseListener(this);
         panel.addMouseMotionListener(this);
+        start.addActionListener(this);
         time = new javax.swing.Timer(3000, this);
         time.start();
 
@@ -125,21 +128,24 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
     public void actionPerformed(ActionEvent e){
         Fruit newFruit;
         int fruitID = r.nextInt(5);
-        if(fruitID == 0){
-            newFruit = new Apple(panel);
-        }else if(fruitID == 1){ 
-            newFruit = new Orange(panel);
-        }else if(fruitID == 2){ 
-            newFruit = new Kiwi(panel);
-        }else if(fruitID == 3){ 
-            newFruit = new Grapefruit(panel);
-        }else{ 
-            newFruit = new Watermelon(panel);
+        if(e.getSource() == start) {
+            if(fruitID == 0){
+                newFruit = new Apple(panel);
+            }else if(fruitID == 1){ 
+                newFruit = new Orange(panel);
+            }else if(fruitID == 2){ 
+                newFruit = new Kiwi(panel);
+            }else if(fruitID == 3){ 
+                newFruit = new Grapefruit(panel);
+            }else{ 
+                newFruit = new Watermelon(panel);
+            }
+            synchronized (lock){
+                list.add(newFruit);
+            }
+
+            newFruit.start();
         }
-        synchronized (lock){
-            list.add(newFruit);
-        }
-        newFruit.start();
         panel.repaint();
     }
 
