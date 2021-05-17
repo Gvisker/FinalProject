@@ -118,7 +118,6 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
         panel.addMouseMotionListener(this);
         start.addActionListener(this);
         time = new javax.swing.Timer(3000, this);
-        time.start();
 
         frame.pack();
         frame.setVisible(true);
@@ -126,9 +125,19 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e){
-        Fruit newFruit;
-        int fruitID = r.nextInt(5);
         if(e.getSource() == start) {
+            time.start();
+            synchronized (lock){
+                list.clear();
+            }
+            start.setText("New game");
+            tempScore.setText("");
+            totalScore = 0;
+            score.setText("Score: " + totalScore);
+        }else{
+            Fruit newFruit;
+            int fruitID = r.nextInt(5);
+            time.start();
             if(fruitID == 0){
                 newFruit = new Apple(panel);
             }else if(fruitID == 1){ 
@@ -145,7 +154,6 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
             }
 
             newFruit.start();
-            start.setText("New game");
         }
         panel.repaint();
     }
