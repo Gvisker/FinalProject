@@ -27,17 +27,12 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
     private JLabel title;
 
     private ArrayList<AnimatedLine> lines = new ArrayList<>();
-
     private Point lastMouse;
-
     private Point pressPoint;
-
     protected javax.swing.Timer time;
-
     private Random r = new Random();
-
     private Object lock = new Object();
-
+    private int totalScore = 0;
     /**
     The run method to set up the graphical user interface
      */
@@ -57,8 +52,27 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
                 super.paintComponent(g);
 
                 int i = 0;
+
                 while (i < list.size()) {
                     Fruit f = list.get(i);
+                    if(!(f.sliced)){
+                        if(mouseCollide(lastMouse, f.upperLeftX, f.upperLeftY, f)){
+                            if(f.size == 50){
+                                totalScore += 10;
+                            }else if(f.size == 200){
+                                totalScore += 1;   
+                            }else if(f.size == 80){
+                                totalScore += 7;   
+                            }else if(f.size == 140){
+                                totalScore += 3;   
+                            }else{
+                                totalScore += 5;   
+                            }
+                            score.setText("Score: " + totalScore);
+                        }
+
+                    }
+
                     if (f.done()) {
                         list.remove(i);
                     }
@@ -74,6 +88,8 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
         };
 
         gamePanel = new JPanel();
+        JLabel score = new JLabel("Score: " + totalScore);
+        panel.add(score);
 
         frame.add(panel);   
         panel.addMouseListener(this);
@@ -156,6 +172,31 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
      */
     @Override
     public void mouseReleased(MouseEvent e) {
+        lastMouse = null;
+    }
+
+    public boolean mouseCollide(Point mousePosition, double x, double y, Fruit f){
+
+        double centerX = x + (f.size / 2);
+        double centerY = y + (f.size / 2);
+
+        if(!(mousePosition == null)){
+            if(f.size == 200){
+                //Needs an if statement for Watermelon because dimensions are not equal all around.
+                //if(){
+                //  f.sliced = true;
+                //return true;   
+                //}
+            }
+
+            if(mousePosition.distance(new Point((int)centerX,(int)centerY)) <= (f.size / 2)){
+                f.sliced = true;
+                return true;   
+            }
+
+        }
+
+        return false;
 
     }
 
