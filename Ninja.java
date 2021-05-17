@@ -88,7 +88,7 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
         };
 
         gamePanel = new JPanel();
-        JLabel score = new JLabel("Score: " + totalScore);
+        score = new JLabel("Score: " + totalScore);
         panel.add(score);
 
         frame.add(panel);   
