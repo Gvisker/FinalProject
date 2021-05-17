@@ -31,5 +31,7 @@ public class Watermelon extends Fruit
         }
 
     }
-
+    public void slice(){
+        
+    }
 }

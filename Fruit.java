@@ -23,16 +23,15 @@ public abstract class Fruit extends Thread
     protected boolean done;
 
     protected JComponent container;
-    
+
     protected int size;
-    
+
     protected double upperLeftX, upperLeftY;
-    
+
     protected boolean sliced;
 
     /**
     Construct a new Fruit object.
-
 
     @param xSpeed initial x speed, pixels per second
     @param ySpeed initial y speed, pixels per second
@@ -56,10 +55,6 @@ public abstract class Fruit extends Thread
     @param g the Graphics object on which the ball should be drawn
      */
     public abstract void paint(Graphics g);
-    
-    public void slice(){
-        sliced = true;
-    }
 
     /**
     This object's run method, which manages the life of the ball as it
@@ -88,7 +83,6 @@ public abstract class Fruit extends Thread
         }
     }
 
-    
     /**
     Return whether the ball has completed its fall to the bottom.
 

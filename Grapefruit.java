@@ -38,4 +38,7 @@ public class Grapefruit extends Fruit
         }
 
     }
+        public void slice(){
+        
+    }
 }

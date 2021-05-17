@@ -26,12 +26,6 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
     private JLabel score, tempScore;
     private JLabel title;
 
-    private final int KIWI_SIZE = 50;
-    private final int WATERMELON_SIZE = 200;
-    private final int ORANGE_SIZE = 80;
-    private final int GRAPEFRUIT_SIZE = 140;
-    private final int APPLE_SIZE = 100;
-
     private ArrayList<AnimatedLine> lines = new ArrayList<>();
     private Point lastMouse;
     private Point pressPoint;
@@ -64,19 +58,19 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
 
                     if(!(f.sliced)){
                         if(mouseCollide(lastMouse, f.upperLeftX, f.upperLeftY, f)){
-                            if(f.size == KIWI_SIZE){
+                            if(f instanceof Kiwi){
                                 totalScore += 10;
                                 tempScore.setForeground(Color.GREEN);
                                 tempScore.setText("+10");
-                            }else if(f.size == WATERMELON_SIZE){
+                            }else if(f instanceof Watermelon){
                                 totalScore += 1;   
                                 tempScore.setForeground(Color.GREEN);
                                 tempScore.setText("+1");
-                            }else if(f.size == ORANGE_SIZE){
+                            }else if(f instanceof Orange){
                                 totalScore += 7;   
                                 tempScore.setForeground(Color.GREEN);
                                 tempScore.setText("+7");
-                            }else if(f.size == GRAPEFRUIT_SIZE){
+                            }else if(f instanceof Grapefruit){
                                 totalScore += 3;   
                                 tempScore.setForeground(Color.GREEN);
                                 tempScore.setText("+3");
@@ -90,7 +84,9 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
                     }
 
                     if (f.done()) {
-                        list.remove(i);
+                        synchronized (lock){
+                            list.remove(i);
+                        }
                     }
                     else {
                         f.paint(g);
@@ -104,11 +100,16 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
         };
 
         gamePanel = new JPanel();
-        score = new JLabel("Score: " + totalScore);
-        start = new JButton("Start");
-        tempScore = new JLabel("");
-        score.setFont(new Font("Verdana", Font.PLAIN, 18));
-        tempScore.setFont(new Font("Verdana", Font.PLAIN, 18));
+        score = new 
+        JLabel("Score: " + totalScore);
+        start = new 
+        JButton("Start");
+        tempScore = new 
+        JLabel("");
+        score.setFont(new 
+            Font("Verdana", Font.PLAIN, 18));
+        tempScore.setFont(new 
+            Font("Verdana", Font.PLAIN, 18));
         panel.add(score);
         panel.add(start);
         panel.add(tempScore);
@@ -216,13 +217,13 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
         double centerX = x + (f.size / 2);
         double centerY = y + (f.size / 2);
 
-        if(!(mousePosition == null)){
-            if(f.size == 200){
+        if(mousePosition != null){
+            if(f instanceof Watermelon){
                 //Needs an if statement for Watermelon because dimensions are not equal all around.
-                //if(){
-                //  f.sliced = true;
-                //return true;   
-                //}
+                if(mousePosition.x - centerX < (f.size / 2) && mousePosition.y - centerY < (f.size / 2)){
+                    f.sliced = true;
+                    return true;   
+                }
             }
 
             if(mousePosition.distance(new Point((int)centerX,(int)centerY)) <= (f.size / 2)){
