@@ -213,24 +213,21 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
     }
 
     public boolean mouseCollide(Point mousePosition, double x, double y, Fruit f){
-
         double centerX = x + (f.size / 2);
         double centerY = y + (f.size / 2);
 
         if(mousePosition != null){
             if(f instanceof Watermelon){
                 //Needs an if statement for Watermelon because dimensions are not equal all around.
-                if(mousePosition.x - centerX < (f.size / 2) && mousePosition.y - centerY < (f.size / 2)){
+                centerY = y + (f.size / 3);
+                if(Math.abs(mousePosition.x - centerX) < (f.size / 2) && Math.abs(mousePosition.y - centerY) < (f.size / 3)){
                     f.sliced = true;
                     return true;   
                 }
-            }
-
-            if(mousePosition.distance(new Point((int)centerX,(int)centerY)) <= (f.size / 2)){
+            }else if(mousePosition.distance(new Point((int)centerX,(int)centerY)) < (f.size / 2)){
                 f.sliced = true;
                 return true;   
             }
-
         }
 
         return false;
