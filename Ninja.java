@@ -145,6 +145,7 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
             }
 
             newFruit.start();
+            start.setText("New game");
         }
         panel.repaint();
     }
