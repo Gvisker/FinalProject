@@ -23,7 +23,7 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
     private JPanel gamePanel;
 
     private JButton start;
-    private JLabel score;
+    private JLabel score, tempScore;
     private JLabel title;
 
     private final int KIWI_SIZE = 50;
@@ -61,22 +61,32 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
 
                 while (i < list.size()) {
                     Fruit f = list.get(i);
+
                     if(!(f.sliced)){
                         if(mouseCollide(lastMouse, f.upperLeftX, f.upperLeftY, f)){
                             if(f.size == KIWI_SIZE){
                                 totalScore += 10;
+                                tempScore.setForeground(Color.GREEN);
+                                tempScore.setText("+10");
                             }else if(f.size == WATERMELON_SIZE){
                                 totalScore += 1;   
+                                tempScore.setForeground(Color.GREEN);
+                                tempScore.setText("+1");
                             }else if(f.size == ORANGE_SIZE){
                                 totalScore += 7;   
+                                tempScore.setForeground(Color.GREEN);
+                                tempScore.setText("+7");
                             }else if(f.size == GRAPEFRUIT_SIZE){
                                 totalScore += 3;   
+                                tempScore.setForeground(Color.GREEN);
+                                tempScore.setText("+3");
                             }else{
-                                totalScore += 5;   
+                                totalScore += 5; 
+                                tempScore.setForeground(Color.GREEN);
+                                tempScore.setText("+5");
                             }
                             score.setText("Score: " + totalScore);
                         }
-
                     }
 
                     if (f.done()) {
@@ -95,7 +105,11 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
 
         gamePanel = new JPanel();
         score = new JLabel("Score: " + totalScore);
+        tempScore = new JLabel("");
+        score.setFont(new Font("Verdana", Font.PLAIN, 18));
+        tempScore.setFont(new Font("Verdana", Font.PLAIN, 18));
         panel.add(score);
+        panel.add(tempScore);
 
         frame.add(panel);   
         panel.addMouseListener(this);
