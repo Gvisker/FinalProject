@@ -24,11 +24,11 @@ public class Kiwi extends Fruit
         if(!sliced){
             g.setColor(Color.black);
             g.drawOval((int)upperLeftX, (int)upperLeftY, size/2, size/2);
-            g.setColor(Color.green);
+            g.setColor(new Color(205, 133, 63));
             g.fillOval((int)upperLeftX, (int)upperLeftY, size/2, size/2);
             g.setColor(Color.black);
         }else{
-            g.setColor(Color.gray);
+            g.setColor(new Color(205, 133, 63));
             g.fillArc((int)upperLeftX, (int)upperLeftY, size/2, size/2, 0, 180);
             g.fillArc((int)upperLeftX, (int)upperLeftY+5, size/2, size/2,180, 180);
             g.setColor(Color.black);
