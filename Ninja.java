@@ -55,34 +55,6 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
 
                 while (i < list.size()) {
                     Fruit f = list.get(i);
-
-                    if(!(f.sliced)){
-                        if(mouseCollide(lastMouse, f.upperLeftX, f.upperLeftY, f)){
-                            if(f instanceof Kiwi){
-                                totalScore += 10;
-                                tempScore.setForeground(Color.GREEN);
-                                tempScore.setText("+10");
-                            }else if(f instanceof Watermelon){
-                                totalScore += 1;   
-                                tempScore.setForeground(Color.GREEN);
-                                tempScore.setText("+1");
-                            }else if(f instanceof Orange){
-                                totalScore += 7;   
-                                tempScore.setForeground(Color.GREEN);
-                                tempScore.setText("+7");
-                            }else if(f instanceof Grapefruit){
-                                totalScore += 3;   
-                                tempScore.setForeground(Color.GREEN);
-                                tempScore.setText("+3");
-                            }else{
-                                totalScore += 5; 
-                                tempScore.setForeground(Color.GREEN);
-                                tempScore.setText("+5");
-                            }
-                            score.setText("Score: " + totalScore);
-                        }
-                    }
-
                     if (f.done()) {
                         synchronized (lock){
                             list.remove(i);
@@ -200,6 +172,37 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
         lines.add(newLine);
         newLine.start();
         panel.repaint();
+        int i = 0;
+        while (i < list.size()) {
+            Fruit f = list.get(i);
+            if(!f.sliced){
+                if(mouseCollide(lastMouse, f.upperLeftX, f.upperLeftY, f)){
+                    if(f instanceof Kiwi){
+                        totalScore += 10;
+                        tempScore.setForeground(Color.GREEN);
+                        tempScore.setText("+10");
+                    }else if(f instanceof Watermelon){
+                        totalScore += 1;   
+                        tempScore.setForeground(Color.GREEN);
+                        tempScore.setText("+1");
+                    }else if(f instanceof Orange){
+                        totalScore += 7;   
+                        tempScore.setForeground(Color.GREEN);
+                        tempScore.setText("+7");
+                    }else if(f instanceof Grapefruit){
+                        totalScore += 3;   
+                        tempScore.setForeground(Color.GREEN);
+                        tempScore.setText("+3");
+                    }else{
+                        totalScore += 5; 
+                        tempScore.setForeground(Color.GREEN);
+                        tempScore.setText("+5");
+                    }
+                    score.setText("Score: " + totalScore);
+                }
+            }
+            i++;
+        }
     }
 
     /**
