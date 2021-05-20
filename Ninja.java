@@ -24,7 +24,7 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
 
     private JButton start;
     private JLabel score, tempScore;
-    private JLabel title;
+    private JLabel title, spacer;
 
     private ArrayList<AnimatedLine> lines = new ArrayList<>();
     private Point lastMouse;
@@ -71,6 +71,7 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
             }
         };
 
+        spacer = new JLabel("                    ");
         gamePanel = new JPanel();
         score = new 
         JLabel("Score: " + totalScore);
@@ -83,8 +84,10 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
         tempScore.setFont(new 
             Font("Verdana", Font.PLAIN, 18));
         panel.add(score);
-        panel.add(start);
+
         panel.add(tempScore);
+        panel.add(spacer);
+        panel.add(start);
 
         frame.add(panel);   
         panel.addMouseListener(this);
