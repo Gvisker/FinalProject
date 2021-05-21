@@ -35,7 +35,7 @@ public abstract class Fruit extends Thread
 
     @param xSpeed initial x speed, pixels per second
     @param ySpeed initial y speed, pixels per second
-    @param container the Swing component in which this ball is being
+    @param container the Swing component in which this fruit is being
     drawn to allow it to call that component's repaint method
      */
     public Fruit(double xSpeed, double ySpeed,
@@ -52,7 +52,7 @@ public abstract class Fruit extends Thread
     /**
     Draw the fruit at its current location.
 
-    @param g the Graphics object on which the ball should be drawn
+    @param g the Graphics object on which the fruit should be drawn
      */
     public abstract void paint(Graphics g);
 
