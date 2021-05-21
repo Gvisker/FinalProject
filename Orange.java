@@ -34,7 +34,4 @@ public class Orange extends Fruit
         }
 
     }
-    public void slice(){
-        
-    }
 }
