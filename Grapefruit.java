@@ -4,10 +4,10 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.event.*;
 /**
- * Write a description of class Grapefruit here.
+ * A representation of a grapefruit.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Grant Visker, John Hurley, Joseph Capper, and Logan Belak.
+ * @version 5/20/2021
  */
 public class Grapefruit extends Fruit
 {
@@ -37,8 +37,5 @@ public class Grapefruit extends Fruit
             g.setColor(Color.black);
         }
 
-    }
-        public void slice(){
-        
     }
 }

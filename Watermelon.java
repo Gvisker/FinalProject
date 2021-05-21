@@ -6,10 +6,10 @@ import javax.swing.event.*;
 import java.awt.Color;
 
 /**
- * A representation of an apple.
+ * A representation of a watermelon.
  *
  * @author Grant Visker, John Hurley, Joseph Capper, and Logan Belak.
- * @version 5/7/2021
+ * @version 5/20/2021
  */
 public class Watermelon extends Fruit
 {   

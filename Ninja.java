@@ -20,7 +20,6 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
     private java.util.List<Fruit> list = new ArrayList<Fruit>();
 
     private JPanel panel;
-    private JPanel gamePanel;
 
     private JButton start;
     private JLabel score, tempScore;
@@ -74,7 +73,6 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
         title.setFont(new Font("Verdana", Font.BOLD, 30));
         spacer = new JLabel("                    ");
         spacer2 = new JLabel("                    ");
-        gamePanel = new JPanel();
         score = new 
         JLabel("Score: " + totalScore);
         start = new 
@@ -104,6 +102,11 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
         frame.setVisible(true);
     }
 
+    /**
+     * Method actionPerformed starts the game and creates fruit threads.
+     *
+     * @param e An action event.
+     */
     @Override
     public void actionPerformed(ActionEvent e){
         if(e.getSource() == start) {
@@ -147,22 +150,7 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
      */
     @Override
     public void mousePressed(MouseEvent e) {
-        // Fruit newFruit = new Apple(panel);
-        // Fruit newFruit2 = new Orange(panel);
-        // Fruit newFruit3 = new Kiwi(panel);
-        // Fruit newFruit4 = new Grapefruit(panel);
-        // Fruit newFruit5 = new Watermelon(panel);
-        // list.add(newFruit);
-        // list.add(newFruit2);
-        // list.add(newFruit3);
-        // list.add(newFruit4);
-        // list.add(newFruit5);
-        // newFruit.start();
-        // newFruit2.start();
-        // newFruit3.start();
-        // newFruit4.start();
-        // newFruit5.start();
-        // panel.repaint();
+
         lastMouse = e.getPoint();
     }
 
@@ -223,6 +211,15 @@ public class Ninja extends MouseAdapter implements Runnable, ActionListener {
         lastMouse = null;
     }
 
+    /**
+     * Method mouseCollide detects for collision between mouse and fruit object.
+     *
+     * @param mousePosition A parameter
+     * @param x x position of fruit.
+     * @param y y position of fruit.
+     * @param f The fruit to check collision for.
+     * @return If the mouse collided with the fruit object.
+     */
     public boolean mouseCollide(Point mousePosition, double x, double y, Fruit f){
         double centerX = x + (f.size / 2);
         double centerY = y + (f.size / 2);

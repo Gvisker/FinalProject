@@ -50,15 +50,15 @@ public abstract class Fruit extends Thread
     }
 
     /**
-    Draw the ball at its current location.
+    Draw the fruit at its current location.
 
     @param g the Graphics object on which the ball should be drawn
      */
     public abstract void paint(Graphics g);
 
     /**
-    This object's run method, which manages the life of the ball as it
-    bounces around the screen.
+    This object's run method, which manages the life of the fruit as it
+    is tossed on the screen.
      */
     @Override
     public void run() {
@@ -84,9 +84,9 @@ public abstract class Fruit extends Thread
     }
 
     /**
-    Return whether the ball has completed its fall to the bottom.
+    Return whether the fruit has completed its fall to the bottom.
 
-    @return whether the ball has completed its fall to the bottom
+    @return whether the fruit has completed its fall to the bottom
      */
     public boolean done() {
         return done;
